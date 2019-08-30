@@ -1,5 +1,8 @@
 package a1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class A1Jedi {
@@ -7,46 +10,79 @@ public class A1Jedi {
 	public static void main(String[] args) {
 
 		Scanner scan = new Scanner(System.in);
+		String firstName, lastName;
+
+		int numOfPurchaces;
+		int numOfProduce;
 		int itemsInStore = scan.nextInt();
+
 		String[] itemArray = new String[itemsInStore];
 		double[] priceArray = new double[itemsInStore];
-		double[] purchase = new double[itemsInStore];
+
 		int[] prodCounter = new int[itemsInStore];
 		int[] custCounter = new int[itemsInStore];
-
 		for (int j = 0; itemsInStore > j; j++) {
 
 			itemArray[j] = scan.next();
 			priceArray[j] = scan.nextDouble();
 
 		}
+
 		int numOfCust = scan.nextInt();
-		String[] fullNames = new String[numOfCust];
-		double[] totalForAll = new double[numOfCust];
+		boolean[] bought = new boolean[numOfCust];
 
 		for (int i = 0; numOfCust > i; i++) {
+			bought[i] = false;
 
-			String firstName = scan.next();
-			String lastName = scan.next();
-			fullNames[i] = firstName + " " + lastName;
-			int numOfPurchaces = scan.nextInt();
+			scan.next();
+			scan.next();
+
+			numOfPurchaces = scan.nextInt();
+
+			String[] itemName = new String[numOfPurchaces];
 
 			for (int h = 0; numOfPurchaces > h; h++) {
-				int numOfProduce = scan.nextInt();
-				String itemName = scan.next();
+
+				numOfProduce = scan.nextInt();
+				itemName[h] = scan.next();
+				int ind = 0;
+
+				// if (itemArray[ind].equals(itemName[h])) {
+
+				// ind++;
+				// }
+				/*
+				 * if (bought[ind]) { prodCounter[ind]++;
+				 * 
+				 * 
+				 * }
+				 */
 
 				for (int j = 0; itemArray.length > j; j++) {
-					if (itemName.equals(itemArray[j])) {
+					if (itemName[h].equals(itemArray[j])) {
+						bought[i] = true;
 
-						prodCounter[j] += 1;
 						custCounter[j] += numOfProduce;
+
+						if (bought[i]) {
+
+							prodCounter[j]++;
+							i++;
+							break;
+						}
 
 					}
 
 				}
 
 			}
+			// for (int j = 0; itemArray.length > j; j++) {
 
+			// if (bought[i]) {
+
+			// prodCounter[j]++;
+			// }
+			// }
 		}
 
 		for (int j = 0; itemArray.length > j; j++) {
@@ -56,5 +92,6 @@ public class A1Jedi {
 				System.out.println(prodCounter[j] + " customers bought " + custCounter[j] + " " + itemArray[j]);
 			}
 		}
+
 	}
 }
