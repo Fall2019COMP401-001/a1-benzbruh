@@ -1,8 +1,5 @@
 package a1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class A1Jedi {
@@ -29,10 +26,10 @@ public class A1Jedi {
 		}
 
 		int numOfCust = scan.nextInt();
-		boolean[] bought = new boolean[numOfCust];
+		// boolean[] bought = new boolean[numOfCust];
 
 		for (int i = 0; numOfCust > i; i++) {
-			bought[i] = false;
+			// bought[i] = false;
 
 			scan.next();
 			scan.next();
@@ -45,7 +42,6 @@ public class A1Jedi {
 
 				numOfProduce = scan.nextInt();
 				itemName[h] = scan.next();
-				int ind = 0;
 
 				// if (itemArray[ind].equals(itemName[h])) {
 
@@ -60,30 +56,28 @@ public class A1Jedi {
 
 				for (int j = 0; itemArray.length > j; j++) {
 					if (itemName[h].equals(itemArray[j])) {
-						bought[i] = true;
+						// bought[i] = true;
 
 						custCounter[j] += numOfProduce;
 
-						if (bought[i]) {
+						// if (bought[i]) {
 
-							prodCounter[j]++;
-							i++;
-							break;
-						}
+						prodCounter[j] += 1;
 
 					}
 
 				}
 
 			}
-			// for (int j = 0; itemArray.length > j; j++) {
 
-			// if (bought[i]) {
-
-			// prodCounter[j]++;
-			// }
-			// }
 		}
+		// for (int j = 0; itemArray.length > j; j++) {
+
+		// if (bought[i]) {
+
+		// prodCounter[j]++;
+		// }
+		// }
 
 		for (int j = 0; itemArray.length > j; j++) {
 			if (prodCounter[j] == 0) {
