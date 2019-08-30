@@ -63,9 +63,13 @@ public class A1Jedi {
 
 				}
 				for (int j = 0; itemsInStore > j; j++) {
+
 					if (itemArray[j].equals(itemName[h])) {
-						if (bought[j] == false) {
+
+						if (!bought[j]) {
+
 							prodCounter[j]++;
+
 							bought[j] = true;
 						}
 
@@ -73,6 +77,9 @@ public class A1Jedi {
 
 				}
 
+			}
+			for (int k = 1; k < itemsInStore; k++) {
+				bought[k] = false;
 			}
 
 		}
