@@ -26,10 +26,10 @@ public class A1Jedi {
 		}
 
 		int numOfCust = scan.nextInt();
-		// boolean[] bought = new boolean[numOfCust];
+		boolean[] bought = new boolean[itemsInStore];
 
 		for (int i = 0; numOfCust > i; i++) {
-			// bought[i] = false;
+			bought[i] = false;
 
 			scan.next();
 			scan.next();
@@ -55,14 +55,19 @@ public class A1Jedi {
 				 */
 
 				for (int j = 0; itemArray.length > j; j++) {
-					if (itemName[h].equals(itemArray[j])) {
-						// bought[i] = true;
+					if (itemArray[j].equals(itemName[h])) {
 
 						custCounter[j] += numOfProduce;
 
-						// if (bought[i]) {
+					}
 
-						prodCounter[j] += 1;
+				}
+				for (int j = 0; itemsInStore > j; j++) {
+					if (itemArray[j].equals(itemName[h])) {
+						if (bought[j] == false) {
+							prodCounter[j]++;
+							bought[j] = true;
+						}
 
 					}
 
@@ -71,6 +76,7 @@ public class A1Jedi {
 			}
 
 		}
+
 		// for (int j = 0; itemArray.length > j; j++) {
 
 		// if (bought[i]) {
@@ -78,8 +84,9 @@ public class A1Jedi {
 		// prodCounter[j]++;
 		// }
 		// }
+		for (
 
-		for (int j = 0; itemArray.length > j; j++) {
+				int j = 0; itemArray.length > j; j++) {
 			if (prodCounter[j] == 0) {
 				System.out.println("No customers bought " + itemArray[j]);
 			} else {
